@@ -4,6 +4,22 @@
 
 A Discord bot that allows server admins to "jail" users by moving them into a specific voice channel and optionally setting a jail time. Useful for moderation or fun!
 
+---
+
+> ⚠️ **IMPORTANT DISCLAIMER** ⚠️  
+>  
+> 🚨 **THIS BOT RECORDS VOICE AUDIO** 🚨  
+>  
+> **Recording functionality is implemented strictly for EDUCATIONAL PURPOSES ONLY.**  
+>  
+> The author takes **NO LEGAL RESPONSIBILITY** for any misuse or consequences arising from the use of this bot or recordings made with it.  
+>  
+> Please ensure you comply with **all applicable laws** and obtain **explicit consent** from all parties before recording any voice communication.  
+>  
+> USE THIS SOFTWARE RESPONSIBLY!
+
+---
+
 ## ✨ Features
 
 - Slash commands `/jail` and `/unjail`
@@ -12,14 +28,7 @@ A Discord bot that allows server admins to "jail" users by moving them into a sp
 - Auto-release users after their time is up
 - Stores jailed user data in a JSON file
 - Permission-restricted to administrators
-
-## 📢 Important Notice
-
-This bot **records voice audio** from the users moved to the jail voice channel.  
-**Recording functionality is implemented for educational purposes only.**  
-
-The author does **not take any legal responsibility** for misuse of this bot or any recordings made with it.  
-Please ensure you comply with your local laws and obtain proper consent before recording any voice communication.
+- Audio-recording
 
 ## 🚀 Commands
 
