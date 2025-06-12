@@ -79,7 +79,7 @@ client.once("ready", async () => {
 
 const interactionCreateHandler = require("./events/interactionCreate");
 const voiceStateUpdateHandler = require("./events/voiceStateUpdate");
-
+client.on("voiceStateUpdate", voiceStateUpdateHandler(jailedUsers));
 client.on("interactionCreate", interactionCreateHandler(jailedUsers));
 client.on("voiceStateUpdate", voiceStateUpdateHandler);
 
