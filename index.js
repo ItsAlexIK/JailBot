@@ -140,7 +140,11 @@ client.on("interactionCreate", async (interaction) => {
     );
 
     const targetMember = await interaction.guild.members.fetch(user.id);
-    if (targetMember.voice && targetMember.voice.channelId) {
+    if (
+      targetMember.voice &&
+      targetMember.voice.channel &&
+      targetMember.voice.channelId !== JAIL_VOICE_CHANNEL_ID
+    ) {
       targetMember.voice.setChannel(JAIL_VOICE_CHANNEL_ID).catch(console.error);
     }
   }
