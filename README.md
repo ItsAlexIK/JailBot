@@ -21,7 +21,7 @@ A Discord bot that allows server admins to "jail" users by moving them into a sp
 
 **Options:**
 - `user` (required): The user to jail
-- `czas` (optional): Time like `10m`, `1h`, `2d`
+- `czas` (optional): Time like `30s`, `10m`, `1h`, `2d`
 
 ### `/unjail`
 

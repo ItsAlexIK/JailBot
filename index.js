@@ -71,7 +71,7 @@ client.once("ready", () => {
         {
           name: "czas",
           type: 3,
-          description: "Czas (np. 10m, 2h, 1d)",
+          description: "Czas (np. 30s, 10m, 2h, 1d)",
           required: false,
         },
       ],
