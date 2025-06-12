@@ -30,18 +30,6 @@ A Discord bot that allows server admins to "jail" users by moving them into a sp
 **Options:**
 - `user` (required): The user to unjail
 
-## 📂 File Structure
-
-```
-project/
-├── index.js             # Main bot code
-├── jailedUsers.json     # Jailed user storage
-├── .env                 # Your bot token and config
-├── LICENSE              # Project License
-├── package.json         # Project metadata
-└── README.txt           # This file
-```
-
 ## 🛠️ Setup
 
 1. Clone the repo and install dependencies:
