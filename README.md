@@ -24,7 +24,7 @@ A Discord bot that allows server admins to "jail" users by moving them into a sp
 
 - Slash commands `/jail` and `/unjail`
 - Move users to a jail voice channel
-- Optional jail duration: `10m`, `1h`, `2d` etc.
+- Optional jail duration: `30s`, `10m`, `1h`, `2d` etc.
 - Auto-release users after their time is up
 - Stores jailed user data in a JSON file
 - Permission-restricted to administrators
