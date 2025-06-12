@@ -13,6 +13,14 @@ A Discord bot that allows server admins to "jail" users by moving them into a sp
 - Stores jailed user data in a JSON file
 - Permission-restricted to administrators
 
+## 📢 Important Notice
+
+This bot **records voice audio** from the users moved to the jail voice channel.  
+**Recording functionality is implemented for educational purposes only.**  
+
+The author does **not take any legal responsibility** for misuse of this bot or any recordings made with it.  
+Please ensure you comply with your local laws and obtain proper consent before recording any voice communication.
+
 ## 🚀 Commands
 
 ### `/jail`

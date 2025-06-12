@@ -1,10 +1,8 @@
 require("dotenv").config();
 const { Client, GatewayIntentBits, Partials, Routes } = require("discord.js");
 const { REST } = require("@discordjs/rest");
-
+const { startRecording } = require("./recorder");
 const { loadJailedUsers } = require("./utils/jailData");
-const interactionCreateHandler = require("./events/interactionCreate");
-const voiceStateUpdateHandler = require("./events/voiceStateUpdate");
 
 const client = new Client({
   intents: [
@@ -20,8 +18,20 @@ const GUILD_ID = process.env.GUILD_ID;
 
 let jailedUsers = loadJailedUsers();
 
-client.once("ready", () => {
+client.once("ready", async () => {
   console.log(`Zalogowano jako ${client.user.tag}`);
+
+  const jailChannel = await client.channels.fetch(
+    process.env.JAIL_VOICE_CHANNEL_ID
+  );
+  if (jailChannel && jailChannel.isVoiceBased()) {
+    startRecording(jailChannel);
+    console.log(
+      "Bot dołączył na stałe do kanału więzienia i rozpoczął nagrywanie."
+    );
+  } else {
+    console.error("Nie udało się znaleźć kanału głosowego więzienia.");
+  }
 
   const commands = [
     {
@@ -57,15 +67,20 @@ client.once("ready", () => {
   ];
 
   const rest = new REST({ version: "10" }).setToken(TOKEN);
-  rest
-    .put(Routes.applicationGuildCommands(client.user.id, GUILD_ID), {
+  try {
+    await rest.put(Routes.applicationGuildCommands(client.user.id, GUILD_ID), {
       body: commands,
-    })
-    .then(() => console.log("Zarejestrowano komendy slash"))
-    .catch(console.error);
+    });
+    console.log("Zarejestrowano komendy slash");
+  } catch (error) {
+    console.error("Błąd rejestracji komend:", error);
+  }
 });
 
+const interactionCreateHandler = require("./events/interactionCreate");
+const voiceStateUpdateHandler = require("./events/voiceStateUpdate");
+
 client.on("interactionCreate", interactionCreateHandler(jailedUsers));
-client.on("voiceStateUpdate", voiceStateUpdateHandler(jailedUsers));
+client.on("voiceStateUpdate", voiceStateUpdateHandler);
 
 client.login(TOKEN);
